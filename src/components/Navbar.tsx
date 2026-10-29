@@ -39,6 +39,18 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock background scrolling when mobile menu drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Solutions', href: '#solutions', id: 'solutions' },
     { name: 'Products', href: '#products', id: 'products' },
@@ -61,20 +73,20 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#04291F]/95 backdrop-blur-md border-b border-[#8FF04F]/15 py-3.5 shadow-lg shadow-black/25'
-            : 'bg-transparent py-5'
+            ? 'bg-[#04291F]/95 backdrop-blur-md border-b border-[#8FF04F]/15 py-3 sm:py-3.5 shadow-lg shadow-black/25'
+            : 'bg-transparent py-4 sm:py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo with Official Brand Monogram & White Solutions Ltd Text */}
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
-              className="group flex items-center gap-3 focus:outline-none"
+              className="group flex items-center gap-2 sm:gap-3 focus:outline-none"
               aria-label="MacTech Digital Home"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-[#063B29] to-[#04291F] border border-[#8FF04F]/40 flex items-center justify-center p-1 shadow-inner group-hover:border-[#8FF04F] transition-all group-hover:shadow-[0_0_14px_rgba(143,240,79,0.45)]">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#063B29] to-[#04291F] border border-[#8FF04F]/40 flex items-center justify-center p-1 shadow-inner group-hover:border-[#8FF04F] transition-all group-hover:shadow-[0_0_14px_rgba(143,240,79,0.45)] shrink-0">
                 <img
                   src="/mactech-logo.png"
                   alt="MacTech Digital Official Monogram Logo"
@@ -82,10 +94,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 />
               </div>
               <div className="flex flex-col text-left">
-                <span className="font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">
+                <span className="font-extrabold text-base sm:text-xl tracking-tight text-white flex items-center gap-1">
                   MacTech Digital
                 </span>
-                <span className="text-[10px] tracking-wider text-white font-medium font-mono uppercase -mt-1">
+                <span className="text-[9px] sm:text-[10px] tracking-wider text-white/90 font-medium font-mono uppercase -mt-0.5 sm:-mt-1">
                   Solutions Ltd
                 </span>
               </div>
@@ -135,21 +147,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* Mobile Actions: Simple CTA + Menu Toggle */}
-            <div className="flex md:hidden items-center gap-2.5">
+            {/* Mobile Actions: Touch-Friendly Fast CTA + Menu Toggle Button */}
+            <div className="flex md:hidden items-center gap-2">
               <button
                 type="button"
                 onClick={onOpenContact}
-                className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#8FF04F] text-[#04291F]"
+                className="px-3 py-2 rounded-full text-xs font-black bg-[#8FF04F] text-[#04291F] shadow-md shadow-[#8FF04F]/20 active:scale-95 transition-transform"
               >
-                Project
+                Start Project
               </button>
+
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl text-gray-200 hover:text-white hover:bg-[#063B29] border border-white/10 focus:outline-none"
+                className="p-2.5 min-w-[44px] min-h-[44px] rounded-xl text-gray-200 hover:text-white hover:bg-[#063B29] border border-white/10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#8FF04F]"
                 aria-expanded={mobileMenuOpen}
-                aria-label="Toggle Navigation Menu"
+                aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6 text-[#8FF04F]" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -158,47 +171,69 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Pro Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-[#04291F]/98 backdrop-blur-2xl md:hidden pt-24 px-6 pb-8 flex flex-col justify-between animate-fadeIn overflow-y-auto"
+          className="fixed inset-0 z-50 bg-[#04291F]/98 backdrop-blur-2xl md:hidden flex flex-col justify-between animate-fadeIn overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
-          <div className="space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <div className="flex items-center gap-2.5">
-                <img src="/mactech-logo.png" alt="MacTech Digital Logo" className="w-7 h-7 object-contain" />
-                <span className="text-xs font-mono uppercase tracking-widest text-white font-bold">
-                  MacTech Digital Solutions Ltd
-                </span>
+          {/* Top Bar inside Drawer */}
+          <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between bg-[#031E16]">
+            <div className="flex items-center gap-2.5">
+              <img src="/mactech-logo.png" alt="MacTech Digital Logo" className="w-7 h-7 object-contain" />
+              <div className="flex flex-col text-left">
+                <span className="text-sm font-extrabold text-white">MacTech Digital</span>
+                <span className="text-[9px] font-mono uppercase tracking-wider text-[#8FF04F]">Solutions Ltd • Arusha</span>
               </div>
             </div>
 
-            <div className="space-y-2">
-              {navLinks.map((link) => (
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-xl bg-white/10 text-white hover:text-[#8FF04F] min-w-[40px] min-h-[40px] flex items-center justify-center"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Nav Links with 48px+ Touch Targets */}
+          <div className="px-6 py-6 space-y-2 flex-1">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-3 text-left">
+              Navigation
+            </p>
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block text-2xl font-extrabold text-white hover:text-[#8FF04F] py-2 border-b border-white/5 transition-colors"
+                  className={`min-h-[48px] py-3.5 px-3 rounded-xl flex items-center justify-between text-xl font-bold transition-all ${
+                    isActive
+                      ? 'text-[#8FF04F] bg-[#063B29] border border-[#8FF04F]/30 pl-4'
+                      : 'text-white hover:text-[#8FF04F] hover:bg-white/5'
+                  }`}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  <ArrowUpRight className={`w-4 h-4 ${isActive ? 'text-[#8FF04F]' : 'text-gray-500'}`} />
                 </a>
-              ))}
-            </div>
+              );
+            })}
           </div>
 
-          <div className="pt-6 space-y-3">
+          {/* Bottom Fast-Track Actions */}
+          <div className="p-6 bg-[#031E16]/90 border-t border-white/10 space-y-3">
             {/* Mobile WhatsApp Quick Action */}
             <a
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 rounded-2xl bg-[#8FF04F] text-[#04291F] font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-[#8FF04F]/20"
+              className="w-full min-h-[48px] py-3.5 px-4 rounded-2xl bg-[#8FF04F] active:bg-[#A5FF57] text-[#04291F] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#8FF04F]/20"
             >
-              <span>WhatsApp: {COMPANY_INFO.phone}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span>WhatsApp Direct: {COMPANY_INFO.phone}</span>
+              <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
             </a>
 
             <button
@@ -207,10 +242,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenConsultation();
               }}
-              className="w-full py-3.5 rounded-2xl border border-white/20 text-white font-medium text-xs flex items-center justify-center gap-2"
+              className="w-full min-h-[48px] py-3.5 px-4 rounded-2xl border border-white/20 hover:border-[#8FF04F]/40 active:bg-white/10 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2"
             >
               <MessageSquare className="w-4 h-4 text-[#8FF04F]" />
-              <span>Book Complimentary Consultation</span>
+              <span>Book 15-Min Free Consultation</span>
             </button>
           </div>
         </div>

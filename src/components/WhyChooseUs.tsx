@@ -50,27 +50,27 @@ export const WhyChooseUs: React.FC = () => {
         </div>
 
         {/* 6 Key Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {WHY_CHOOSE_US.map((item, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-[#F4F6F3] border border-[#E3E7E2] hover:border-[#8FF04F] transition-all duration-300 hover:shadow-lg hover:shadow-[#063B29]/5 flex flex-col justify-between"
+              className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#F4F6F3] border border-[#E3E7E2] hover:border-[#8FF04F] transition-all duration-300 hover:shadow-lg hover:shadow-[#063B29]/5 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white border border-[#E3E7E2] flex items-center justify-center mb-6 shadow-sm">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white border border-[#E3E7E2] flex items-center justify-center mb-4 sm:mb-6 shadow-sm">
                   {getIcon(item.icon)}
                 </div>
 
-                <h3 className="text-xl font-bold text-[#14211B] tracking-tight mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-[#14211B] tracking-tight mb-2 sm:mb-3">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-[#69766E] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#69766E] leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#E3E7E2]/60 flex items-center text-xs font-semibold text-[#063B29]">
+              <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-[#E3E7E2]/60 flex items-center text-xs font-semibold text-[#063B29]">
                 <span>Principle 0{idx + 1}</span>
               </div>
             </div>

@@ -183,31 +183,31 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           
           {/* Left Column: Direct Contact & Office Details (Inspired by Arounda Reference) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#063B29]/70 backdrop-blur-md rounded-3xl p-8 border border-[#8FF04F]/20 text-left">
-              <h3 className="text-2xl font-bold text-white mb-2">
+            <div className="bg-[#063B29]/70 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#8FF04F]/20 text-left">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 Need a project? Drop us a message.
               </h3>
-              <p className="text-sm text-gray-300 mb-6">
+              <p className="text-xs sm:text-sm text-gray-300 mb-6">
                 Connect directly with our engineering and strategy team in Arusha, Tanzania.
               </p>
 
               {/* Direct Email Card */}
               <a
                 href={`mailto:${COMPANY_INFO.email}`}
-                className="group flex items-center justify-between p-4 rounded-2xl bg-[#04291F] border border-white/10 hover:border-[#8FF04F]/50 transition-all mb-3"
+                className="group flex items-center justify-between p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#04291F] border border-white/10 hover:border-[#8FF04F]/50 transition-all mb-3 min-h-[48px]"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#063B29] flex items-center justify-center text-[#8FF04F]">
+                  <div className="w-10 h-10 rounded-xl bg-[#063B29] flex items-center justify-center text-[#8FF04F] shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-gray-400 block font-mono">General Inquiries</span>
-                    <span className="text-sm font-bold text-white group-hover:text-[#8FF04F] transition-colors">
+                    <span className="text-[10px] text-gray-400 block font-mono">General Inquiries</span>
+                    <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#8FF04F] transition-colors break-all">
                       {COMPANY_INFO.email}
                     </span>
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-[#8FF04F]" />
+                <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-[#8FF04F] shrink-0" />
               </a>
 
               {/* WhatsApp Fast Track Button */}
@@ -215,18 +215,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded-2xl bg-[#8FF04F] hover:bg-[#A5FF57] text-[#04291F] transition-all font-bold mb-6 shadow-lg shadow-[#8FF04F]/15"
+                className="group flex items-center justify-between p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#8FF04F] hover:bg-[#A5FF57] active:bg-[#A5FF57] text-[#04291F] transition-all font-bold mb-6 shadow-lg shadow-[#8FF04F]/15 min-h-[48px]"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#04291F] flex items-center justify-center text-[#8FF04F]">
+                  <div className="w-10 h-10 rounded-xl bg-[#04291F] flex items-center justify-center text-[#8FF04F] shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="text-left">
                     <span className="text-[10px] uppercase font-mono tracking-wider opacity-80 block">Fast Track WhatsApp</span>
-                    <span className="text-sm font-extrabold">Chat with MacTech Team</span>
+                    <span className="text-xs sm:text-sm font-extrabold">Chat with MacTech Team</span>
                   </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5] shrink-0" />
               </a>
 
               {/* Office Details */}
@@ -254,7 +254,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Response Time Guarantee Box */}
-            <div className="p-6 rounded-3xl bg-[#063B29]/40 border border-white/10 text-left text-xs text-gray-300">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#063B29]/40 border border-white/10 text-left text-xs text-gray-300">
               <span className="font-bold text-white block text-sm mb-1">
                 24-Hour Review Turnaround
               </span>
@@ -264,7 +264,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
           {/* Right Column: Functional Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#063B29]/80 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-[#8FF04F]/25 text-left shadow-2xl">
+            <div className="bg-[#063B29]/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-[#8FF04F]/25 text-left shadow-2xl">
               
               {isSubmitted ? (
                 <div className="text-center py-12 space-y-5 animate-fadeIn">
@@ -321,9 +321,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   {/* Name and Company Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label htmlFor="fullName" className="block text-xs font-semibold text-gray-200 mb-2">
+                      <label htmlFor="fullName" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                         Full Name <span className="text-[#8FF04F]">*</span>
                       </label>
                       <input
@@ -332,20 +332,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. David Mushi"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#04291F] border text-white text-sm placeholder-gray-500 focus:outline-none transition-colors ${
+                        className={`w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none transition-colors min-h-[46px] ${
                           errors.fullName ? 'border-red-400 focus:border-red-400' : 'border-white/15 focus:border-[#8FF04F]'
                         }`}
                       />
                       {errors.fullName && (
                         <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" />
-                          {errors.fullName}
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.fullName}</span>
                         </p>
                       )}
                     </div>
 
                     <div>
-                      <label htmlFor="companyName" className="block text-xs font-semibold text-gray-200 mb-2">
+                      <label htmlFor="companyName" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                         Company / Organization <span className="text-gray-400">(Optional)</span>
                       </label>
                       <input
@@ -354,15 +354,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="e.g. Kilimo Trade Ltd"
-                        className="w-full px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#8FF04F] transition-colors"
+                        className="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none focus:border-[#8FF04F] transition-colors min-h-[46px]"
                       />
                     </div>
                   </div>
 
                   {/* Email and Phone Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label htmlFor="email" className="block text-xs font-semibold text-gray-200 mb-2">
+                      <label htmlFor="email" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                         Business Email <span className="text-[#8FF04F]">*</span>
                       </label>
                       <input
@@ -371,27 +371,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="david@company.com"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#04291F] border text-white text-sm placeholder-gray-500 focus:outline-none transition-colors ${
+                        className={`w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none transition-colors min-h-[46px] ${
                           errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/15 focus:border-[#8FF04F]'
                         }`}
                       />
                       {errors.email && (
                         <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" />
-                          {errors.email}
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.email}</span>
                         </p>
                       )}
                     </div>
 
                     <div>
-                      <label htmlFor="phoneNumber" className="block text-xs font-semibold text-gray-200 mb-2">
+                      <label htmlFor="phoneNumber" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                         Phone Number <span className="text-[#8FF04F]">*</span>
                       </label>
                       <div className="flex gap-2">
                         <select
                           value={formData.phoneCountryCode}
                           onChange={(e) => setFormData({ ...formData, phoneCountryCode: e.target.value })}
-                          className="px-2.5 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-[#8FF04F]"
+                          className="w-[96px] sm:w-auto px-2 sm:px-2.5 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-base sm:text-xs font-mono focus:outline-none focus:border-[#8FF04F] shrink-0 min-h-[46px]"
                           aria-label="Country Code"
                         >
                           {countryCodes.map((c) => (
@@ -406,31 +406,31 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                           value={formData.phoneNumber}
                           onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
                           placeholder="742 835 420"
-                          className={`w-full px-4 py-3 rounded-xl bg-[#04291F] border text-white text-sm placeholder-gray-500 focus:outline-none transition-colors ${
+                          className={`w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none transition-colors min-h-[46px] ${
                             errors.phoneNumber ? 'border-red-400 focus:border-red-400' : 'border-white/15 focus:border-[#8FF04F]'
                           }`}
                         />
                       </div>
                       {errors.phoneNumber && (
                         <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" />
-                          {errors.phoneNumber}
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.phoneNumber}</span>
                         </p>
                       )}
                     </div>
                   </div>
 
                   {/* Required Service and Budget Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
-                      <label htmlFor="serviceRequired" className="block text-xs font-semibold text-gray-200 mb-2">
+                      <label htmlFor="serviceRequired" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                         Primary Service Required <span className="text-[#8FF04F]">*</span>
                       </label>
                       <select
                         id="serviceRequired"
                         value={formData.serviceRequired}
                         onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-sm focus:outline-none focus:border-[#8FF04F]"
+                        className="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-base sm:text-sm focus:outline-none focus:border-[#8FF04F] min-h-[46px]"
                       >
                         {SERVICES_DATA.map((s) => (
                           <option key={s.id} value={s.title} className="bg-[#04291F]">
@@ -447,12 +447,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                           Custom Technical Consultation
                         </option>
                       </select>
-
                     </div>
 
                     <div>
-                      <label htmlFor="estimatedBudget" className="block text-xs font-semibold text-gray-200 mb-2">
-                        Estimated Budget <span className="text-gray-400 font-normal">(Enter in USD or TZS)</span>
+                      <label htmlFor="estimatedBudget" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
+                        Estimated Budget <span className="text-gray-400 font-normal">(USD or TZS)</span>
                       </label>
                       <input
                         type="text"
@@ -460,14 +459,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.estimatedBudget}
                         onChange={(e) => setFormData({ ...formData, estimatedBudget: e.target.value })}
                         placeholder="e.g. $2,500 or TZS 6,000,000"
-                        className="w-full px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#8FF04F] transition-colors"
+                        className="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border border-white/15 text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none focus:border-[#8FF04F] transition-colors min-h-[46px]"
                       />
                     </div>
                   </div>
 
                   {/* Project Description Textarea */}
                   <div>
-                    <label htmlFor="projectDescription" className="block text-xs font-semibold text-gray-200 mb-2">
+                    <label htmlFor="projectDescription" className="block text-xs font-semibold text-gray-200 mb-1.5 sm:mb-2">
                       Project Description & Goals <span className="text-[#8FF04F]">*</span>
                     </label>
                     <textarea
@@ -476,26 +475,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       value={formData.projectDescription}
                       onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
                       placeholder="Outline what you are looking to build, expected timelines, key functionality, or specific challenges..."
-                      className={`w-full px-4 py-3 rounded-xl bg-[#04291F] border text-white text-sm placeholder-gray-500 focus:outline-none transition-colors resize-y ${
+                      className={`w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#04291F] border text-white text-base sm:text-sm placeholder-gray-500 focus:outline-none transition-colors resize-y ${
                         errors.projectDescription ? 'border-red-400 focus:border-red-400' : 'border-white/15 focus:border-[#8FF04F]'
                       }`}
                     />
                     {errors.projectDescription && (
                       <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        {errors.projectDescription}
+                        <AlertCircle className="w-3 h-3 shrink-0" />
+                        <span>{errors.projectDescription}</span>
                       </p>
                     )}
                   </div>
 
                   {/* Consent Checkbox */}
                   <div>
-                    <label className="flex items-start gap-3 cursor-pointer">
+                    <label className="flex items-start gap-3 cursor-pointer py-1 touch-manipulation">
                       <input
                         type="checkbox"
                         checked={formData.agreeToPrivacy}
                         onChange={(e) => setFormData({ ...formData, agreeToPrivacy: e.target.checked })}
-                        className="mt-1 w-4 h-4 rounded border-white/20 bg-[#04291F] text-[#8FF04F] focus:ring-[#8FF04F]"
+                        className="mt-1 w-4 h-4 rounded border-white/20 bg-[#04291F] text-[#8FF04F] focus:ring-[#8FF04F] shrink-0"
                       />
                       <span className="text-xs text-gray-300 leading-relaxed">
                         I agree to allow MacTech Digital Solutions Limited to process my submitted information
@@ -504,8 +503,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </label>
                     {errors.agreeToPrivacy && (
                       <p className="mt-1 text-xs text-red-400 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        {errors.agreeToPrivacy}
+                        <AlertCircle className="w-3 h-3 shrink-0" />
+                        <span>{errors.agreeToPrivacy}</span>
                       </p>
                     )}
                   </div>
@@ -514,7 +513,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl bg-[#8FF04F] hover:bg-[#A5FF57] text-[#04291F] font-extrabold text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-[#8FF04F]/25 disabled:opacity-60 cursor-pointer"
+                    className="w-full py-4 min-h-[50px] rounded-xl bg-[#8FF04F] hover:bg-[#A5FF57] active:scale-[0.99] text-[#04291F] font-black text-sm sm:text-base tracking-wide transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-[#8FF04F]/25 disabled:opacity-60 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

@@ -29,17 +29,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
       {/* Top subtle lime accent line */}
       <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#8FF04F]/60 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-10 sm:pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 pb-10 sm:pb-14 border-b border-white/10">
           
           {/* Brand Info & Mission */}
-          <div className="lg:col-span-4 text-left">
+          <div className="sm:col-span-2 lg:col-span-4 text-left">
             <a
               href="#hero"
               onClick={(e) => handleSmoothScroll(e, '#hero')}
               className="inline-flex items-center gap-3 mb-4 group"
             >
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#063B29] to-[#04291F] border border-[#8FF04F]/40 flex items-center justify-center p-1 shadow-inner group-hover:border-[#8FF04F] transition-colors">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#063B29] to-[#04291F] border border-[#8FF04F]/40 flex items-center justify-center p-1 shadow-inner group-hover:border-[#8FF04F] transition-colors shrink-0">
                 <img
                   src="/mactech-logo.png"
                   alt="MacTech Digital Official Monogram"
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
               </div>
             </a>
 
-            <p className="text-sm text-gray-300 leading-relaxed font-medium mb-4">
+            <p className="text-sm text-gray-300 leading-relaxed font-medium mb-3 sm:mb-4">
               "{COMPANY_INFO.tagline}"
             </p>
 
@@ -66,14 +66,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
               and Point-of-Sale software for businesses in Tanzania and worldwide.
             </p>
 
-            {/* Social Links with inline SVGs */}
-            <div className="flex items-center gap-2">
+            {/* Social Links with inline SVGs — 40px touch targets */}
+            <div className="flex items-center gap-2.5">
               {/* LinkedIn */}
               <a
                 href={COMPANY_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] flex items-center justify-center text-gray-300 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] active:bg-white/10 flex items-center justify-center text-gray-300 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 href={COMPANY_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] flex items-center justify-center text-gray-300 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] active:bg-white/10 flex items-center justify-center text-gray-300 transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 href={COMPANY_INFO.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] flex items-center justify-center text-gray-300 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] active:bg-white/10 flex items-center justify-center text-gray-300 transition-colors"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 href={COMPANY_INFO.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] flex items-center justify-center text-gray-300 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#8FF04F] hover:text-[#8FF04F] active:bg-white/10 flex items-center justify-center text-gray-300 transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">

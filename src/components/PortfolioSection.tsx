@@ -117,9 +117,9 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         </div>
 
         {/* Dynamic Controls: Filter Pills + Search Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 sm:mb-12">
+          {/* Horizontally Scrollable Filter Pills on Mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center w-full md:w-auto -mx-4 px-4 sm:mx-0 sm:px-0">
             {filterOptions.map((opt) => {
               const isSelected = activeFilter === opt.value;
               return (
@@ -127,7 +127,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   key={opt.value}
                   type="button"
                   onClick={() => setActiveFilter(opt.value)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap min-h-[40px] flex items-center ${
                     isSelected
                       ? 'bg-[#063B29] text-white shadow-md shadow-[#063B29]/20'
                       : 'bg-[#F4F6F3] text-[#69766E] hover:text-[#14211B] hover:bg-gray-200 border border-transparent'
@@ -140,20 +140,20 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           </div>
 
           {/* Search Input */}
-          <div className="relative w-full md:w-72">
+          <div className="relative w-full md:w-72 shrink-0">
             <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products & tech..."
-              className="w-full pl-10 pr-9 py-2.5 rounded-full bg-[#F4F6F3] border border-[#E3E7E2] text-xs sm:text-sm text-[#14211B] placeholder-gray-400 focus:outline-none focus:border-[#063B29] transition-all"
+              className="w-full pl-10 pr-9 py-2.5 rounded-full bg-[#F4F6F3] border border-[#E3E7E2] text-xs sm:text-sm text-[#14211B] placeholder-gray-400 focus:outline-none focus:border-[#063B29] transition-all min-h-[42px]"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-gray-200 text-gray-500"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-200 text-gray-500"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
@@ -164,7 +164,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
         {/* Empty State */}
         {filteredProjects.length === 0 ? (
-          <div className="text-center py-16 bg-[#F4F6F3] rounded-3xl border border-[#E3E7E2] p-8">
+          <div className="text-center py-12 sm:py-16 bg-[#F4F6F3] rounded-2xl sm:rounded-3xl border border-[#E3E7E2] p-6 sm:p-8">
             <p className="text-base font-bold text-[#14211B]">
               No products found matching "{searchQuery}"
             </p>
@@ -184,7 +184,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           </div>
         ) : (
           /* Cards Grid: Video -> Name -> Short Description -> Visit Site -> Blinking Start Your Project */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {filteredProjects.map((project) => {
               const media = PROJECT_MEDIA[project.id] || {
                 browserUrl: project.externalUrl || `https://${project.id}.mactechdigital.co.tz`,
@@ -199,32 +199,32 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               return (
                 <div
                   key={project.id}
-                  className="group bg-[#F4F6F3] rounded-3xl border border-[#E3E7E2] p-6 sm:p-7 hover:border-[#8FF04F] transition-all duration-300 hover:shadow-xl hover:shadow-[#063B29]/5 flex flex-col justify-between"
+                  className="group bg-[#F4F6F3] rounded-2xl sm:rounded-3xl border border-[#E3E7E2] p-4 sm:p-7 hover:border-[#8FF04F] transition-all duration-300 hover:shadow-xl hover:shadow-[#063B29]/5 flex flex-col justify-between"
                 >
                   <div>
                     {/* ======================================================== */}
                     {/* 1. VIDEO OF THE SITE (Browser Frame + Interactive Video) */}
                     {/* ======================================================== */}
-                    <div className="relative rounded-2xl overflow-hidden border border-gray-300 bg-[#04291F] shadow-inner mb-6 group/video">
+                    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-gray-300 bg-[#04291F] shadow-inner mb-5 sm:mb-6 group/video">
                       {/* Browser Window Header */}
-                      <div className="bg-[#031E16] px-3.5 py-2 border-b border-white/10 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5">
+                      <div className="bg-[#031E16] px-3 py-2 border-b border-white/10 flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5 shrink-0">
                           <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
                           <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                           <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                         </div>
-                        <div className="bg-[#04291F] px-3 py-0.5 rounded-full text-[10px] text-gray-300 font-mono flex items-center gap-1 border border-white/10 max-w-[210px] sm:max-w-xs truncate">
+                        <div className="bg-[#04291F] px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] text-gray-300 font-mono flex items-center gap-1 border border-white/10 max-w-[130px] xs:max-w-[200px] sm:max-w-xs truncate">
                           <span className="text-[#8FF04F]">🔒</span>
                           <span className="truncate">{media.browserUrl}</span>
                         </div>
-                        <div className="text-[10px] font-mono text-[#8FF04F] flex items-center gap-1">
+                        <div className="text-[9px] sm:text-[10px] font-mono text-[#8FF04F] flex items-center gap-1 shrink-0">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#8FF04F] animate-pulse" />
                           <span>HD</span>
                         </div>
                       </div>
 
                       {/* Video Player Display */}
-                      <div className={`relative min-h-[220px] sm:min-h-[250px] bg-gradient-to-br ${media.gradient} flex flex-col justify-between p-5 text-white overflow-hidden`}>
+                      <div className={`relative min-h-[190px] xs:min-h-[220px] sm:min-h-[250px] bg-gradient-to-br ${media.gradient} flex flex-col justify-between p-3.5 sm:p-5 text-white overflow-hidden`}>
                         {/* Background Subtle Tech Grid */}
                         <div className="absolute inset-0 hero-tile-grid opacity-30 pointer-events-none" />
 
@@ -283,10 +283,10 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     {/* 2. NAME OF THE SITE                                      */}
                     {/* ======================================================== */}
                     <div className="flex items-baseline justify-between gap-2 mb-2">
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-[#14211B] tracking-tight group-hover:text-[#063B29] transition-colors">
+                      <h3 className="text-xl sm:text-3xl font-extrabold text-[#14211B] tracking-tight group-hover:text-[#063B29] transition-colors">
                         {project.title === 'PdfYako' ? 'PdfYako.com' : project.title}
                       </h3>
-                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#063B29] bg-white px-2.5 py-1 rounded-full border border-[#E3E7E2]">
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-[#063B29] bg-white px-2 sm:px-2.5 py-1 rounded-full border border-[#E3E7E2] shrink-0">
                         {project.category}
                       </span>
                     </div>
@@ -294,7 +294,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     {/* ======================================================== */}
                     {/* 3. SHORT DESCRIPTION                                     */}
                     {/* ======================================================== */}
-                    <p className="text-sm text-[#69766E] leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-[#69766E] leading-relaxed mb-5 sm:mb-6">
                       {project.description}
                     </p>
                   </div>
@@ -303,7 +303,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   {/* 4. LINK TEXT: VISIT SITE                                   */}
                   {/* 5. BELOW LINK TEXT: START YOUR PROJECT BLINKING            */}
                   {/* ========================================================== */}
-                  <div className="space-y-3 pt-5 border-t border-[#E3E7E2]">
+                  <div className="space-y-3 pt-4 sm:pt-5 border-t border-[#E3E7E2]">
                     
                     {/* Link Text: Visit Site */}
                     <div className="flex items-center justify-between">
@@ -312,26 +312,26 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           href={displayUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-extrabold text-[#063B29] hover:text-[#04291F] underline decoration-2 underline-offset-4 transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-extrabold text-[#063B29] hover:text-[#04291F] underline decoration-2 underline-offset-4 transition-colors group/link py-1"
                         >
                           <span>Visit Site</span>
-                          <ExternalLink className="w-4 h-4 stroke-[2.5] transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                          <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5] transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                         </a>
                       ) : (
                         <button
                           type="button"
                           onClick={() => onSelectProject(project)}
-                          className="inline-flex items-center gap-2 text-sm font-extrabold text-[#063B29] hover:text-[#04291F] underline decoration-2 underline-offset-4 transition-colors group/link cursor-pointer"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-extrabold text-[#063B29] hover:text-[#04291F] underline decoration-2 underline-offset-4 transition-colors group/link cursor-pointer py-1"
                         >
                           <span>View Specifications & Demo</span>
-                          <ExternalLink className="w-4 h-4 stroke-[2.5]" />
+                          <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
                         </button>
                       )}
 
                       <button
                         type="button"
                         onClick={() => onSelectProject(project)}
-                        className="text-xs font-semibold text-gray-500 hover:text-black flex items-center gap-1 cursor-pointer"
+                        className="text-xs font-semibold text-gray-500 hover:text-black flex items-center gap-1 cursor-pointer py-1"
                       >
                         <SlidersHorizontal className="w-3.5 h-3.5" />
                         <span>Specs</span>
@@ -342,20 +342,20 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     <button
                       type="button"
                       onClick={onStartProject}
-                      className="w-full py-3.5 px-5 rounded-2xl bg-[#04291F] hover:bg-[#063B29] text-white font-extrabold text-xs sm:text-sm tracking-wide transition-all shadow-md hover:shadow-lg flex items-center justify-between group/cta cursor-pointer border border-[#8FF04F]/40"
+                      className="w-full py-3.5 px-3.5 sm:px-5 rounded-2xl bg-[#04291F] hover:bg-[#063B29] active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm tracking-wide transition-all shadow-md hover:shadow-lg flex items-center justify-between group/cta cursor-pointer border border-[#8FF04F]/40 min-h-[46px]"
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
                         {/* Blinking / Pulsing Indicator */}
-                        <div className="relative flex items-center justify-center">
+                        <div className="relative flex items-center justify-center shrink-0">
                           <span className="w-2.5 h-2.5 rounded-full bg-[#8FF04F] animate-ping absolute opacity-75" />
                           <span className="w-2.5 h-2.5 rounded-full bg-[#8FF04F]" />
                         </div>
-                        <span className="text-[#8FF04F] font-black tracking-wide uppercase">
+                        <span className="text-[#8FF04F] font-black tracking-wide uppercase text-left">
                           Start Your Project
                         </span>
                       </div>
-                      <span className="text-xs text-white/80 group-hover/cta:translate-x-1 transition-transform font-bold">
-                        Get Instant Proposal →
+                      <span className="text-[11px] sm:text-xs text-white/80 group-hover/cta:translate-x-1 transition-transform font-bold whitespace-nowrap">
+                        <span className="hidden xs:inline">Get Instant </span>Proposal →
                       </span>
                     </button>
 
@@ -365,14 +365,6 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             })}
           </div>
         )}
-
-        {/* Closing Note */}
-        <div className="mt-16 text-center text-xs text-[#69766E] max-w-2xl mx-auto bg-[#F4F6F3] p-4 rounded-2xl border border-[#E3E7E2]">
-          <p className="font-semibold text-[#14211B] mb-0.5">
-            100% Bespoke Codebases • Arusha, Tanzania
-          </p>
-          Need a custom web application, enterprise software, or POS system engineered for your business? We build scalable, production-grade solutions.
-        </div>
       </div>
     </section>
   );

@@ -41,23 +41,23 @@ export const FaqSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 focus:outline-none cursor-pointer min-h-[52px]"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold text-[#14211B] tracking-tight">
+                  <span className="text-sm sm:text-lg font-bold text-[#14211B] tracking-tight">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full bg-[#F4F6F3] flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#F4F6F3] flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180 bg-[#063B29] text-white' : 'text-gray-600'
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-sm text-[#69766E] leading-relaxed border-t border-gray-100 animate-fadeIn">
+                  <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-[#69766E] leading-relaxed border-t border-gray-100 animate-fadeIn">
                     {faq.answer}
                   </div>
                 )}

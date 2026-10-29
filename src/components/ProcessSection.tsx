@@ -34,8 +34,8 @@ export const ProcessSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Desktop Process Stepper Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Process Stepper Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PROCESS_STEPS.map((stepItem, idx) => {
             const isSelected = activeStep === idx;
 
@@ -43,31 +43,31 @@ export const ProcessSection: React.FC = () => {
               <div
                 key={stepItem.step}
                 onClick={() => setActiveStep(idx)}
-                className={`cursor-pointer rounded-3xl p-7 transition-all duration-300 flex flex-col justify-between border ${
+                className={`cursor-pointer rounded-2xl sm:rounded-3xl p-5 sm:p-7 transition-all duration-300 flex flex-col justify-between border ${
                   isSelected
-                    ? 'bg-[#04291F] border-[#8FF04F] shadow-2xl shadow-black/50 scale-[1.02]'
+                    ? 'bg-[#04291F] border-[#8FF04F] shadow-2xl shadow-black/50 scale-[1.01] sm:scale-[1.02]'
                     : 'bg-[#04291F]/60 border-white/10 hover:border-white/30 hover:bg-[#04291F]/80'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-2xl font-mono font-black text-[#8FF04F]">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <span className="text-xl sm:text-2xl font-mono font-black text-[#8FF04F]">
                       {stepItem.step}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#063B29] border border-white/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-[#063B29] border border-white/10 flex items-center justify-center shrink-0">
                       {icons[idx]}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5 sm:mb-2">
                     {stepItem.title}
                   </h3>
 
-                  <p className="text-xs font-medium text-[#8FF04F] mb-4">
+                  <p className="text-xs font-semibold text-[#8FF04F] mb-3 sm:mb-4">
                     {stepItem.tagline}
                   </p>
 
-                  <p className="text-xs text-gray-300 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs text-gray-300 leading-relaxed mb-5 sm:mb-6 font-normal">
                     {stepItem.description}
                   </p>
                 </div>
@@ -86,34 +86,36 @@ export const ProcessSection: React.FC = () => {
         </div>
 
         {/* Process Detail Spotlight */}
-        <div className="mt-12 bg-[#04291F] rounded-3xl p-6 sm:p-8 border border-[#8FF04F]/25 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#063B29] border border-[#8FF04F]/40 flex items-center justify-center shrink-0">
-              <span className="text-lg font-mono font-bold text-[#8FF04F]">
+        <div className="mt-8 sm:mt-12 bg-[#04291F] rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#8FF04F]/25 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
+          <div className="flex items-center gap-3.5 sm:gap-4 w-full md:w-auto">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#063B29] border border-[#8FF04F]/40 flex items-center justify-center shrink-0">
+              <span className="text-base sm:text-lg font-mono font-bold text-[#8FF04F]">
                 {PROCESS_STEPS[activeStep].step}
               </span>
             </div>
             <div className="text-left">
-              <h4 className="text-base font-bold text-white">
-                Active Phase Focus: {PROCESS_STEPS[activeStep].title} — {PROCESS_STEPS[activeStep].tagline}
+              <h4 className="text-sm sm:text-base font-bold text-white">
+                Active Phase: {PROCESS_STEPS[activeStep].title} — {PROCESS_STEPS[activeStep].tagline}
               </h4>
-              <p className="text-xs text-gray-300 mt-0.5">
+              <p className="text-[11px] sm:text-xs text-gray-300 mt-0.5">
                 Each stage produces tangible code, designs, or verifiable test reports before moving to the next.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 py-1">
             {PROCESS_STEPS.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 type="button"
                 onClick={() => setActiveStep(dotIdx)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  activeStep === dotIdx ? 'w-8 bg-[#8FF04F]' : 'w-2.5 bg-white/20 hover:bg-white/40'
-                }`}
+                className={`h-3 rounded-full transition-all duration-300 p-1 min-h-[32px] flex items-center justify-center cursor-pointer`}
                 aria-label={`Go to step ${dotIdx + 1}`}
-              />
+              >
+                <span className={`block h-2 rounded-full transition-all ${
+                  activeStep === dotIdx ? 'w-7 sm:w-8 bg-[#8FF04F]' : 'w-2 bg-white/20 hover:bg-white/40'
+                }`} />
+              </button>
             ))}
           </div>
         </div>

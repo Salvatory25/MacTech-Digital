@@ -98,73 +98,74 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         
         {/* Monogram Brand Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#063B29]/90 border border-[#8FF04F]/35 text-xs text-gray-200 mb-8 backdrop-blur-md shadow-md">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#063B29]/90 border border-[#8FF04F]/35 text-[11px] sm:text-xs text-gray-200 mb-6 sm:mb-8 backdrop-blur-md shadow-md max-w-full">
           <img
             src="/mactech-logo.png"
             alt="MacTech Digital Monogram"
-            className="w-5 h-5 object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_5px_rgba(143,240,79,0.6)]"
+            className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_5px_rgba(143,240,79,0.6)] shrink-0"
           />
-          <span className="font-bold text-[#8FF04F]">MacTech Digital</span>
+          <span className="font-bold text-[#8FF04F] whitespace-nowrap">MacTech Digital</span>
           <span className="text-gray-400">•</span>
-          <span className="text-gray-200">Bespoke Software, Web & POS Solutions in Tanzania</span>
+          <span className="hidden sm:inline text-gray-200">Bespoke Software, Web & POS Solutions in Tanzania</span>
+          <span className="sm:hidden text-gray-200 truncate">Software, Web & POS</span>
         </div>
 
         {/* High-Converting Hero Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] max-w-5xl mx-auto">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.14] sm:leading-[1.08] max-w-5xl mx-auto">
           We Build Digital Solutions That{' '}
           <span className="relative inline-block text-white">
             Sell, Scale
-            <span className="absolute -bottom-1 left-0 right-0 h-2 bg-gradient-to-r from-[#8FF04F] to-transparent rounded-full opacity-80" />
+            <span className="absolute -bottom-1 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-[#8FF04F] to-transparent rounded-full opacity-80" />
           </span>{' '}
           <span className="text-[#8FF04F]">& Empower Growth.</span>
         </h1>
 
         {/* Persuasive copy written to sell */}
-        <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto font-normal leading-relaxed">
+        <p className="mt-4 sm:mt-6 text-sm sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-normal leading-relaxed px-1">
           From high-converting corporate websites and offline-first POS engines to enterprise mobile apps,
           MacTech Digital engineers custom technology that attracts customers, automates operations, and accelerates revenue.
         </p>
 
-        {/* Primary and secondary CTAs */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        {/* Primary and secondary CTAs — Full width on phones for easy thumb tapping */}
+        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto w-full">
           <button
             type="button"
             onClick={onStartProject}
-            className="px-8 py-4 rounded-full text-base font-extrabold bg-[#8FF04F] hover:bg-[#A5FF57] text-[#04291F] transition-all duration-200 transform hover:-translate-y-1 shadow-xl shadow-[#8FF04F]/25 flex items-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-extrabold bg-[#8FF04F] hover:bg-[#A5FF57] active:scale-[0.98] text-[#04291F] transition-all duration-200 shadow-xl shadow-[#8FF04F]/25 flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Start Your Project</span>
-            <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
+            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
           </button>
 
           <button
             type="button"
             onClick={onExploreWork}
-            className="px-7 py-4 rounded-full text-base font-semibold text-white bg-[#063B29]/70 hover:bg-[#063B29] border border-white/20 hover:border-[#8FF04F]/50 transition-all duration-200 backdrop-blur-md flex items-center gap-2.5 cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold text-white bg-[#063B29]/70 hover:bg-[#063B29] active:scale-[0.98] border border-white/20 hover:border-[#8FF04F]/50 transition-all duration-200 backdrop-blur-md flex items-center justify-center gap-2.5 cursor-pointer"
           >
-            <Play className="w-4 h-4 fill-white text-white" />
+            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-white" />
             <span>Explore Shipped Work</span>
           </button>
         </div>
 
         {/* Credibility highlights: Real company value propositions */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-semibold text-gray-200">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:flex sm:flex-wrap items-center justify-center gap-2.5 sm:gap-10 text-xs font-semibold text-gray-200 text-left sm:text-center max-w-sm sm:max-w-none mx-auto">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#8FF04F]" />
+            <CheckCircle2 className="w-4 h-4 text-[#8FF04F] shrink-0" />
             <span>48+ Completed Digital Projects</span>
           </div>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#8FF04F]" />
+            <ShieldCheck className="w-4 h-4 text-[#8FF04F] shrink-0" />
             <span>100% Code & Intellectual Property Ownership</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#8FF04F]" />
+            <CheckCircle2 className="w-4 h-4 text-[#8FF04F] shrink-0" />
             <span>Enterprise SLAs & Continuous Support</span>
           </div>
         </div>
       </div>
 
       {/* Layered Product Showcase — Transformed with real company impact & credibility */}
-      <div className="relative mt-14 lg:mt-20 max-w-5xl mx-auto px-4 w-full">
+      <div className="relative mt-12 sm:mt-14 lg:mt-20 max-w-5xl mx-auto px-2 sm:px-4 w-full">
         <div className="relative mx-auto flex items-center justify-center">
 
           {/* ========================================================= */}
@@ -218,8 +219,8 @@ export const Hero: React.FC<HeroProps> = ({
           {/* ========================================================= */}
           {/* CENTRAL SMARTPHONE / PLATFORM SHOWCASE (MacTech Impact Engine) */}
           {/* ========================================================= */}
-          <div className="relative w-full max-w-[360px] sm:max-w-[420px] bg-[#0A3D2C] rounded-[40px] p-3 sm:p-4 shadow-2xl shadow-black/70 border-4 border-[#08422F] backdrop-blur-xl z-10 transition-transform hover:scale-[1.01]">
-            <div className="bg-[#05261C] rounded-[32px] p-5 sm:p-6 text-white border border-[#8FF04F]/15 relative overflow-hidden">
+          <div className="relative w-full max-w-[315px] xs:max-w-[360px] sm:max-w-[420px] bg-[#0A3D2C] rounded-[32px] sm:rounded-[40px] p-2.5 sm:p-4 shadow-2xl shadow-black/70 border-4 border-[#08422F] backdrop-blur-xl z-10 transition-transform hover:scale-[1.01]">
+            <div className="bg-[#05261C] rounded-[24px] sm:rounded-[32px] p-3.5 sm:p-6 text-white border border-[#8FF04F]/15 relative overflow-hidden">
               
               {/* Dynamic Island / Speaker notch */}
               <div className="w-24 h-4 bg-black/60 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -250,7 +251,7 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
 
               {/* Timeframe pill tabs */}
-              <div className="flex items-center justify-between bg-black/40 p-1 rounded-full mb-5 border border-white/10">
+              <div className="flex items-center justify-between bg-black/40 p-0.5 sm:p-1 rounded-full mb-4 sm:mb-5 border border-white/10">
                 {(['Projects', 'Velocity', 'Milestones', 'Impact'] as const).map((tab) => {
                   const isActive = activeTab === tab;
                   return (
@@ -258,7 +259,7 @@ export const Hero: React.FC<HeroProps> = ({
                       key={tab}
                       type="button"
                       onClick={() => setActiveTab(tab)}
-                      className={`flex-1 py-1 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+                      className={`flex-1 py-1 text-[10px] sm:text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
                         isActive
                           ? 'bg-[#8FF04F] text-[#04291F] shadow-sm font-bold'
                           : 'text-gray-400 hover:text-white'
@@ -421,6 +422,25 @@ export const Hero: React.FC<HeroProps> = ({
 
 
 
+        </div>
+
+        {/* Mobile-Only Live Proof Cards (Visible only on mobile screens < 640px) */}
+        <div className="grid grid-cols-2 gap-2.5 mt-5 sm:hidden w-full max-w-[315px] xs:max-w-[360px] mx-auto text-left">
+          <div className="bg-white rounded-2xl p-3.5 shadow-lg border border-white/60">
+            <div className="flex items-center justify-between">
+              <span className="text-xl font-extrabold text-[#14211B]">48+</span>
+              <span className="px-1.5 py-0.5 rounded bg-[#8FF04F]/30 text-[#063B29] text-[9px] font-bold">100% Shipped</span>
+            </div>
+            <p className="text-[11px] text-[#69766E] font-medium mt-1">Delivered Solutions</p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-3.5 shadow-lg border border-white/60">
+            <div className="flex items-center justify-between">
+              <span className="text-xl font-extrabold text-[#14211B]">120+</span>
+              <span className="px-1.5 py-0.5 rounded bg-[#8FF04F]/30 text-[#063B29] text-[9px] font-bold">★ 99.4%</span>
+            </div>
+            <p className="text-[11px] text-[#69766E] font-medium mt-1">Happy Clients</p>
+          </div>
         </div>
       </div>
     </section>

@@ -112,39 +112,39 @@ export const TrustedBySection: React.FC = () => {
     <section id="trusted" className="py-16 sm:py-24 bg-white text-[#14211B] border-b border-[#E3E7E2] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Header Tag with Orange Indicator */}
-        <div className="inline-flex items-center gap-2 mb-3 px-3.5 py-1.5 rounded-full bg-[#FFF5F0] border border-[#FF6B35]/20">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B35] animate-pulse" />
-          <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#FF6B35] font-mono">
+        {/* Header Tag Bar with Official Brand Colors (Forest Green #063B29 & Lime #8FF04F) */}
+        <div className="inline-flex items-center gap-2 sm:gap-2.5 mb-3 sm:mb-4 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#063B29] text-[#8FF04F] border border-[#8FF04F]/40 shadow-md shadow-[#063B29]/20">
+          <span className="w-2 h-2 rounded-full bg-[#8FF04F] shadow-[0_0_8px_#8FF04F] animate-pulse shrink-0" />
+          <span className="text-[10px] sm:text-xs font-black tracking-[0.2em] sm:tracking-[0.22em] uppercase font-mono">
             TRUSTED BY INDUSTRY LEADERS
           </span>
         </div>
 
         {/* Headline */}
-        <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0D1D2D] tracking-tight mb-4">
+        <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0D1D2D] tracking-tight mb-3 sm:mb-4">
           Powering Businesses Building the Future
         </h2>
 
         {/* Subtitle with Original Brand Messaging */}
-        <p className="text-sm sm:text-base text-[#69766E] max-w-2xl mx-auto mb-12 sm:mb-16 leading-relaxed">
+        <p className="text-xs sm:text-base text-[#69766E] max-w-2xl mx-auto mb-8 sm:mb-16 leading-relaxed px-2">
           Ambitious businesses across Tanzania, East Africa, and beyond partner with MacTech Digital
           for dependable engineering, digital platforms, and software solutions.
         </p>
 
         {/* Motion Design Marquee Container with Gradient Edge Masks */}
-        <div className="relative w-full overflow-hidden group py-4">
+        <div className="relative w-full overflow-hidden group py-2 sm:py-4">
           {/* Left Gradient Edge Mask */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
 
           {/* Right Gradient Edge Mask */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           {/* Continuous Motion Loop */}
-          <div className="animate-marquee flex items-center gap-6 sm:gap-8">
+          <div className="animate-marquee flex items-center gap-3 sm:gap-8">
             {marqueeLogos.map((logo, idx) => (
               <div
                 key={`${logo.id}-${idx}`}
-                className="flex items-center gap-3.5 px-6 py-4 rounded-2xl bg-[#F8FAF7] border border-[#E3E7E2] hover:border-[#8FF04F] hover:bg-white hover:shadow-lg hover:shadow-[#063B29]/5 transition-all duration-300 transform hover:-translate-y-0.5 shrink-0 group/card cursor-pointer"
+                className="flex items-center gap-3 px-4 py-3 sm:px-6 sm:py-4 rounded-xl sm:rounded-2xl bg-[#F8FAF7] border border-[#E3E7E2] hover:border-[#8FF04F] hover:bg-white hover:shadow-lg hover:shadow-[#063B29]/5 transition-all duration-300 transform hover:-translate-y-0.5 shrink-0 group/card cursor-pointer"
               >
                 <div className="text-gray-700 group-hover/card:text-[#063B29] transition-colors shrink-0">
                   {logo.svgIcon}
@@ -153,16 +153,12 @@ export const TrustedBySection: React.FC = () => {
                   <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#14211B] leading-snug whitespace-nowrap group-hover/card:text-[#063B29] transition-colors">
                     {logo.name}
                   </span>
-                  <span className="text-[10px] font-mono tracking-wider text-[#69766E] uppercase whitespace-nowrap">
+                  <span className="text-[9px] sm:text-[10px] font-mono tracking-wider text-[#69766E] uppercase whitespace-nowrap">
                     {logo.category}
                   </span>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-6 text-[11px] font-mono text-gray-400 tracking-wider">
-            <span>← Continuous Partner Telemetry • Hover to Pause →</span>
           </div>
         </div>
 
