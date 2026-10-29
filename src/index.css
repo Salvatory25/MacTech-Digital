@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-dark: #04291F;
+  --color-forest-deep: #032118;
+  --color-forest-primary: #063B29;
+  --color-forest-card: #08422F;
+  --color-forest-card-border: rgba(143, 240, 79, 0.15);
+  
+  --color-lime-primary: #8FF04F;
+  --color-lime-support: #A5FF57;
+  --color-lime-subtle: rgba(143, 240, 79, 0.12);
+  --color-lime-glow: rgba(143, 240, 79, 0.28);
+  
+  --color-pure-white: #FFFFFF;
+  --color-soft-bg: #F4F6F3;
+  --color-soft-card: #FFFFFF;
+  --color-soft-border: #E3E7E2;
+  
+  --color-primary-text: #14211B;
+  --color-muted-text: #69766E;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --primary-forest: #063B29;
+  --dark-forest: #04291F;
+  --bright-lime: #8FF04F;
+  --supporting-lime: #A5FF57;
+  --primary-text: #14211B;
+  --muted-text: #69766E;
+  --soft-bg: #F4F6F3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #04291F;
+  color: #14211B;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Subtle Hero architectural tile grid lines */
+.hero-tile-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Radiant glow behind mockups */
+.hero-radial-glow {
+  background: radial-gradient(circle 500px at 50% 50%, rgba(143, 240, 79, 0.18), transparent 70%);
+}
+
+.hero-radial-ambient {
+  background: radial-gradient(circle 700px at 50% 30%, rgba(6, 59, 41, 0.95), #04291F 75%);
+}
+
+/* Floating animation keyframes */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.4deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Smooth continuous logo marquee */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 35s linear infinite;
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 45s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #04291F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0A4330;
+  border-radius: 9999px;
+  border: 2px solid #04291F;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8FF04F;
+}
+
+/* Smooth Focus indicator for a11y */
+:focus-visible {
+  outline: 2px solid #8FF04F;
+  outline-offset: 3px;
+}
